@@ -1,0 +1,14 @@
+<p>summary works!</p>
+<ngx-charts-bar-vertical  *ngIf="scaleData.length >1"
+[view]="[1000,400]"
+    [results]="scaleData"
+    [xAxisLabel]="'Products'"
+    [legendTitle]="'Product Sale Chart'"
+    [yAxisLabel]="'Sale'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true">
+</ngx-charts-bar-vertical>
