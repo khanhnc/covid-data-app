@@ -1,63 +1,65 @@
-<div class="global-data-content" *ngIf="globalData">
-  <span class="mat-title">Worldwide Covid-19 Data:</span>  
-  <table style="width:100%">
-    <tr>
-      <td class="mat-body-2">New Confirmed: {{globalData.NewConfirmed}}</td>
-      <td class="mat-body-2">New Deaths: {{globalData.NewDeaths}}</td>
-      <td class="mat-body-2">New Deaths: {{globalData.NewDeaths}}</td>
-      <td class="mat-body-2">New Recovered: {{globalData.NewRecovered}}</td>
-    </tr>
-    <tr>
-      <td class="mat-body-2">Total Confirmed: {{globalData.TotalConfirmed}}</td>
-      <td class="mat-body-2">Total Deaths: {{globalData.TotalDeaths}}</td>
-      <td class="mat-body-2">Total Recovered: {{globalData.TotalRecovered}}</td>
-    </tr>
-  </table>
-</div>
-<div class="table-content">
-  <span class="mat-title">Covid-19 Data By Country:</span>  
-    <mat-table [dataSource]="dataSource">
-      <!-- User name Definition -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.Country}} </mat-cell>
-      </ng-container>
-    
-      <!-- Age Definition -->
-      <ng-container matColumnDef="newConfirmed">
-        <mat-header-cell *matHeaderCellDef> New Confirmed </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.NewConfirmed}} </mat-cell>
-      </ng-container>
-    
-      <!-- Title Definition -->
-      <ng-container matColumnDef="newDeaths">
-        <mat-header-cell *matHeaderCellDef> New Deaths </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.NewDeaths}} </mat-cell>
-      </ng-container>
-    
-      <ng-container matColumnDef="newRecovered">
-        <mat-header-cell *matHeaderCellDef> New Recovered </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.NewRecovered}} </mat-cell>
-      </ng-container>
-    
-      <ng-container matColumnDef="totalConfirmed">
-        <mat-header-cell *matHeaderCellDef> Total Confirmed </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.TotalConfirmed}} </mat-cell>
-      </ng-container>
-    
-      <ng-container matColumnDef="totalDeaths">
-        <mat-header-cell *matHeaderCellDef> Total Deaths </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.TotalDeaths}} </mat-cell>
-      </ng-container>
-    
-      <ng-container matColumnDef="totalRevored">
-        <mat-header-cell *matHeaderCellDef> Total Revcoverd </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.TotalRecovered}} </mat-cell>
-      </ng-container>
-    
-      <!-- Header and Row Declarations -->
-      <mat-header-row sticky *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-      <mat-row  sticky *matRowDef="let row; columns: displayedColumns  "></mat-row>
-    </mat-table>
-    
+<div class="container">
+  <div class="global-data-content" *ngIf="globalData">
+    <span class="mat-title">Worldwide Covid-19 Data:</span>  
+    <table style="width:100%">
+      <tr>
+        <td class="mat-body-2">New Confirmed: {{globalData.NewConfirmed}}</td>
+        <td class="mat-body-2">New Deaths: {{globalData.NewDeaths}}</td>
+        <td class="mat-body-2">New Deaths: {{globalData.NewDeaths}}</td>
+        <td class="mat-body-2">New Recovered: {{globalData.NewRecovered}}</td>
+      </tr>
+      <tr>
+        <td class="mat-body-2">Total Confirmed: {{globalData.TotalConfirmed}}</td>
+        <td class="mat-body-2">Total Deaths: {{globalData.TotalDeaths}}</td>
+        <td class="mat-body-2">Total Recovered: {{globalData.TotalRecovered}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="table-content">
+    <span class="mat-title">Covid-19 Data By Country</span>  
+      <mat-table [dataSource]="dataSource">
+        <!-- User name Definition -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.Country}} </mat-cell>
+        </ng-container>
+      
+        <!-- Age Definition -->
+        <ng-container matColumnDef="newConfirmed">
+          <mat-header-cell *matHeaderCellDef> New Confirmed </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.NewConfirmed}} </mat-cell>
+        </ng-container>
+      
+        <!-- Title Definition -->
+        <ng-container matColumnDef="newDeaths">
+          <mat-header-cell *matHeaderCellDef> New Deaths </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.NewDeaths}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="newRecovered">
+          <mat-header-cell *matHeaderCellDef> New Recovered </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.NewRecovered}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="totalConfirmed">
+          <mat-header-cell *matHeaderCellDef> Total Confirmed </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.TotalConfirmed}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="totalDeaths">
+          <mat-header-cell *matHeaderCellDef> Total Deaths </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.TotalDeaths}} </mat-cell>
+        </ng-container>
+      
+        <ng-container matColumnDef="totalRevored">
+          <mat-header-cell *matHeaderCellDef> Total Revcoverd </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.TotalRecovered}} </mat-cell>
+        </ng-container>
+      
+        <!-- Header and Row Declarations -->
+        <mat-header-row sticky *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row  sticky *matRowDef="let row; columns: displayedColumns  "></mat-row>
+      </mat-table>
+      
+  </div>
 </div>

@@ -49,13 +49,24 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { RouterModule, Routes } from '@angular/router';
+import { StatisticsComponent } from './statistics/statistics.component';
+
+
+
+const routes: Routes = [
+  { path: '', component: SummaryComponent  },
+  { path: 'stats', component: StatisticsComponent  },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    SummaryComponent
+    SummaryComponent,
+    StatisticsComponent
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule, 
@@ -101,6 +112,9 @@ import { MatTableModule } from '@angular/material/table';
 
   ],
   providers: [HttpClientModule],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule],
 })
+
+
 export class AppModule { }
