@@ -1,8 +1,10 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="sticky">
   <mat-toolbar-row >
     <span>Covid-19 Data</span>
     <button mat-button>Summary</button>
   </mat-toolbar-row>
 </mat-toolbar>
-<app-summary></app-summary>
-<router-outlet></router-outlet>
+<div class="main-wraper">
+  <app-summary class="full-width"></app-summary>
+  <router-outlet></router-outlet>
+</div>

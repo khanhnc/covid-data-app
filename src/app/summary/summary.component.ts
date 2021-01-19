@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
 import { Country } from '../model';
-
 
 @Component({
   selector: 'app-summary',
@@ -10,21 +9,13 @@ import { Country } from '../model';
 })
 export class SummaryComponent implements OnInit  {
   
-  testData = [
-    {
-      "name": "Germany",
-      "value": 8940000
-    },
-    {
-      "name": "USA",
-      "value": 5000000
-    }
-  ];
   countries: Country[] = [];
   currentDate : string = '';
   globalData: any;
-
   scaleData :any = [];
+  dataSource : Country [] = []; 
+  displayedColumns: string[] = ['name', 'newConfirmed', 'newDeaths', 'newRecovered', 'totalConfirmed', 'totalDeaths', 'totalRevored'];
+
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
@@ -32,11 +23,8 @@ export class SummaryComponent implements OnInit  {
     this.countries = data.Countries;
     this.globalData = data.Global;
     this.currentDate = data.Date;
-    for (let i = 0; i <30; i ++) {
-      this.scaleData.push({ name: this.countries[i].Country, value: this.countries[i].NewConfirmed });
-    }   
+    this.dataSource = data.Countries;
+    console.log(data)
     })
   }
-
-
 }

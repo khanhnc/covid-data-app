@@ -1,0 +1,16 @@
+.main-wraper{
+    margin: auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
