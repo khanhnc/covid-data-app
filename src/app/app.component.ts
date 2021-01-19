@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,5 @@ export class AppComponent {
   title = 'covid-charts';
 
   constructor( ) {  
-  }
-
-  @HostListener('window:scroll', ['$event']) // for window scroll events
-  onScroll(event) {
-    console.log(event)
   }
 }
