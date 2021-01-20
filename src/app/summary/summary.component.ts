@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { Country } from '../model';
+import { PostmanData } from '../model';
 
 @Component({
   selector: 'app-summary',
@@ -9,11 +9,11 @@ import { Country } from '../model';
 })
 export class SummaryComponent implements OnInit  {
   
-  countries: Country[] = [];
+  countries: PostmanData[] = [];
   currentDate : string = '';
   globalData: any;
   scaleData :any = [];
-  dataSource : Country [] = []; 
+  dataSource : PostmanData [] = []; 
   displayedColumns: string[] = ['name', 'newConfirmed', 'newDeaths', 'newRecovered', 'totalConfirmed', 'totalDeaths', 'totalRevored'];
 
   constructor(private httpClient: HttpClient) { }

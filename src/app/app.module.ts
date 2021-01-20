@@ -51,6 +51,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule, Routes } from '@angular/router';
 import { StatisticsComponent } from './statistics/statistics.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -68,6 +69,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule, 
     HttpClientModule,
