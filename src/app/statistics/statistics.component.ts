@@ -12,9 +12,6 @@ import { Country, APCovidData, APPlotData } from '../model';
   styleUrls: ['./statistics.component.scss']
 })
 export class StatisticsComponent implements OnInit {
-
-  @ViewChild('chart') chart: LineChartComponent
-
   view: any[] = [1000, 500];
   // options
   legend: boolean = true;
@@ -71,9 +68,9 @@ export class StatisticsComponent implements OnInit {
 
   calculateAllDataByDay(n :number) {
     this.plotData[0].series = [];
-    for (let i = this.dataByCountry.timeline.length -1 ; i > this.dataByCountry.timeline.length-n ; i --) {
-      this.plotData[0].series.push({name: this.dataByCountry.timeline[i].updated_at, 
-        value: this.dataByCountry.timeline[i].confirmed })
+    for (let i = this.dataByCountry.timeline.length ; i > this.dataByCountry.timeline.length-n ; i --) {
+      this.plotData[0].series.push({name: this.dataByCountry.timeline[i-1].updated_at, 
+        value: this.dataByCountry.timeline[i-1].confirmed })
     }
     this.results = [...this.plotData];
   }
@@ -86,7 +83,6 @@ export class StatisticsComponent implements OnInit {
       return;
     }else {
       this.calculateAllDataByDay(this.intervall);
-      console.log(this.plotData, this.chart)
     }
   }
 
